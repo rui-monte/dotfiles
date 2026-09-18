@@ -7,15 +7,26 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "ui_font_family": ".ZedSans",
+  "ui_font_fallbacks": ["Symbols Nerd Font Mono"],
+  "show_edit_predictions": false,
+  "disable_ai": false,
   "base_keymap": "VSCode",
   "cli_default_open_behavior": "new_window",
   "terminal": {
-    "font_family": ".ZedMono"
+    "font_size": 15.0,
+    "font_family": ".ZedMono",
+    "font_fallbacks": ["Symbols Nerd Font Mono"]
   },
   "edit_predictions": {
+    "allow_data_collection": "no",
     "provider": "zed"
   },
-  "icon_theme": "Catppuccin Mocha",
+  "icon_theme": {
+    "mode": "light",
+    "light": "Catppuccin Frappé",
+    "dark": "Catppuccin Mocha"
+  },
   "outline_panel": {
     "dock": "right"
   },
@@ -36,24 +47,12 @@
     "dock": "left"
   },
   "agent_servers": {
-    "opencode": {
-      "favorite_config_option_values": {
-        "effort": [
-          "medium",
-          "xhigh"
-        ]
-      },
-      "default_config_options": {
-        "mode": "build",
-        "effort": "high",
-        "model": "openai/gpt-5.6-sol"
-      },
-      "type": "registry"
-    },
     "claude-acp": {
-      "type": "registry"
-    },
-    "codex-acp": {
+      "default_config_options": {
+        "mode": "auto",
+        "effort": "medium",
+        "model": "sonnet"
+      },
       "type": "registry"
     }
   },
@@ -65,7 +64,7 @@
   },
   "theme": {
     "mode": "system",
-    "light": "One Light",
+    "light": "Catppuccin Latte",
     "dark": "Catppuccin Mocha"
   },
   "ui_font_size": 16,
@@ -73,5 +72,5 @@
     "toggle_relative_line_numbers": true,
     "use_smartcase_find": true
   },
-  "vim_mode": false
+  "vim_mode": false,
 }
