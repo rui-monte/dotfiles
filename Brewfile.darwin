@@ -1,5 +1,8 @@
+cask "font-lilex-nerd-font"
+cask "font-symbols-only-nerd-font"
 cask "ghostty"
 cask "karabiner-elements"
+cask "keepingyouawake"
 cask "mac-mouse-fix@2"
 cask "rectangle"
 

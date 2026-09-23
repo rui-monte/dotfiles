@@ -1,3 +1,10 @@
 theme = "light:Catppuccin Latte,dark:catppuccin-macchiato"
-font-family = "ZedMono Nerd Font Mono"
+font-family = "Lilex Nerd Font Mono"
+font-family = "Symbols Nerd Font Mono"
 font-size = 15
+
+# Match Zed's terminal rendering: its default line_height is "comfortable"
+# (1.618em) against Lilex's natural 1.3em, and Zed rasterizes lighter than
+# Ghostty's native blending.
+adjust-cell-height = 25%
+alpha-blending = linear-corrected
