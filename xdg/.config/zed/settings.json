@@ -7,6 +7,18 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "tab_bar": {
+    "show_pinned_tabs_in_separate_row": false
+  },
+  "tabs": {
+    "show_diagnostics": "all",
+    "close_position": "left",
+    "file_icons": true
+  },
+  "title_bar": {
+    "show_branch_status_icon": true
+  },
+  "use_system_window_tabs": true,
   "ui_font_family": ".ZedSans",
   "ui_font_fallbacks": ["Symbols Nerd Font Mono"],
   "show_edit_predictions": false,
@@ -44,6 +56,8 @@
     "model_parameters": []
   },
   "project_panel": {
+    "folder_indicator": "both",
+    "entry_spacing": "comfortable",
     "dock": "left"
   },
   "agent_servers": {
