@@ -20,6 +20,7 @@ The bootstrap script will:
 - install TPM for tmux plugins
 - install the Pi coding agent when `npm` is available
 - create `~/.config/zsh/local.zsh` from the example file if it does not exist yet
+- map Caps Lock to Escape on Linux GNOME desktops, preserving other keyboard options
 
 ## Layout
 

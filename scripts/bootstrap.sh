@@ -130,6 +130,30 @@ prepare_local_shell_config() {
   cp "$REPO_ROOT/xdg/.config/zsh/local.zsh.example" "$local_shell_file"
 }
 
+configure_linux_keyboard() {
+  if [[ "$(detect_platform)" != "linux" || "${XDG_CURRENT_DESKTOP:-}" != *GNOME* ]]; then
+    return
+  fi
+
+  if ! command -v gsettings >/dev/null 2>&1; then
+    log "Skipping keyboard setup because gsettings is not available"
+    return
+  fi
+
+  log "Mapping Caps Lock to Escape"
+  python3 - <<'PY'
+import ast
+import subprocess
+
+schema = "org.gnome.desktop.input-sources"
+key = "xkb-options"
+raw = subprocess.check_output(["gsettings", "get", schema, key], text=True).strip()
+options = ast.literal_eval(raw.removeprefix("@as "))
+options = [option for option in options if not option.startswith("caps:")] + ["caps:escape"]
+subprocess.run(["gsettings", "set", schema, key, repr(options)], check=True)
+PY
+}
+
 install_pi_agent() {
   if command -v pi >/dev/null 2>&1; then
     return
@@ -153,6 +177,7 @@ main() {
   install_tmux_plugin_manager
   install_pi_agent
   prepare_local_shell_config
+  configure_linux_keyboard
   log "Bootstrap complete"
 }
 
