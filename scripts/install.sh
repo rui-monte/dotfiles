@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-REPO_URL="https://github.com/rui-ad-monte/dotfiles.git"
+REPO_URL="https://github.com/rui-monte/dotfiles.git"
 TARGET_DIR="$HOME/dotfiles"
 
 log() {
