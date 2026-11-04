@@ -5,11 +5,16 @@
 vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = false })
 
 -- Move across splits; at the edge, hand off to the surrounding tmux or Rex pane.
+-- Under neorex every window is its own Rex pane, which wincmd can't move between by direction.
+local in_neorex = vim.v.servername:match("/neorex%-%d+%.nvim%.sock$") ~= nil
+
 local function navigate(dir)
-  local win = vim.api.nvim_get_current_win()
-  vim.cmd.wincmd(({ left = "h", down = "j", up = "k", right = "l" })[dir])
-  if vim.api.nvim_get_current_win() ~= win then
-    return
+  if not in_neorex then
+    local win = vim.api.nvim_get_current_win()
+    vim.cmd.wincmd(({ left = "h", down = "j", up = "k", right = "l" })[dir])
+    if vim.api.nvim_get_current_win() ~= win then
+      return
+    end
   end
   if vim.env.TMUX then
     vim.system({ "tmux", "select-pane", "-" .. dir:sub(1, 1):upper() })

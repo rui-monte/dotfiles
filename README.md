@@ -19,6 +19,7 @@ The bootstrap script will:
 - stow the dotfiles into `$HOME`
 - install TPM for tmux plugins
 - install the Pi coding agent when `npm` is available
+- build neorex into `~/.local/bin` when `zig` is available
 - create `~/.config/zsh/local.zsh` from the example file if it does not exist yet
 
 ## Layout
@@ -65,3 +66,4 @@ If you intentionally changed a managed file in `$HOME` and want to bring that ve
 - `scripts/bootstrap.sh` migrates `~/.nvm/alias/default` into `fnm` when that file exists
 - Ghostty uses `MesloLGS Nerd Font Mono`; install it manually if you want the exact same font locally
 - Neovim plugins bootstrap themselves on first launch through LazyVim
+- In a Rex pane, `nvim` runs through [neorex](https://github.com/alexrlocke/neorex) when it is installed, so splits become Rex panes; anywhere else it is plain Neovim. neorex is macOS-only for now: once it runs on Linux, move `brew "zig"` to `Brewfile.common`

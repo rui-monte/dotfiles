@@ -7,7 +7,7 @@ local function in_vim(ctx)
     { session_id = ctx.session_id, block_id = ctx.block_id }
   )
   local name = ok and proc and proc.foreground and proc.foreground.name or ""
-  return name:match("^g?n?vim?x?$") ~= nil or name == "view"
+  return name:match("^g?n?vim?x?$") ~= nil or name == "view" or name == "neorex"
 end
 
 -- Key handlers can't queue client actions, so these call the session API directly.

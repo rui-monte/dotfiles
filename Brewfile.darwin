@@ -8,3 +8,4 @@ cask "nikitabobko/tap/aerospace"
 cask "rectangle"
 
 brew "cormacrelf/tap/dark-notify"
+brew "zig"

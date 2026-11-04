@@ -144,6 +144,30 @@ install_pi_agent() {
   npm install -g --ignore-scripts @earendil-works/pi-coding-agent
 }
 
+install_neorex() {
+  local src_dir
+
+  src_dir="$HOME/.local/src/neorex"
+
+  if [[ -x "$HOME/.local/bin/neorex" ]]; then
+    return
+  fi
+
+  if ! command -v zig >/dev/null 2>&1; then
+    log "Skipping neorex install because zig is not available"
+    return
+  fi
+
+  log "Installing neorex"
+  if [[ ! -d "$src_dir/.git" ]]; then
+    git clone https://github.com/alexrlocke/neorex "$src_dir"
+  fi
+
+  if ! (cd "$src_dir" && zig build -Doptimize=ReleaseSafe --prefix "$HOME/.local"); then
+    log "Continuing after neorex build errors"
+  fi
+}
+
 main() {
   install_homebrew
   activate_homebrew
@@ -152,6 +176,7 @@ main() {
   "$REPO_ROOT/scripts/stow.sh"
   install_tmux_plugin_manager
   install_pi_agent
+  install_neorex
   prepare_local_shell_config
   log "Bootstrap complete"
 }
