@@ -9,6 +9,9 @@ return {
         end,
         desc = "Buffers",
       },
+      -- Swapped from LazyVim defaults: ff = cwd, fF = root
+      { "<leader>ff", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
+      { "<leader>fF", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
     },
     opts = function(_, opts)
       opts.picker = opts.picker or {}

@@ -26,7 +26,7 @@ This repository is a GNU Stow-managed dotfiles repo.
 There is no compile step in this repo.
 The closest equivalents are install/bootstrap/restow flows.
 ```sh
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/rui-ad-monte/dotfiles/main/scripts/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/rui-monte/dotfiles/main/scripts/install.sh)"
 ./scripts/bootstrap.sh
 ./scripts/stow.sh
 ```
