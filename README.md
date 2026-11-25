@@ -5,7 +5,7 @@ This repo is organized as GNU Stow packages so a fresh clone can bootstrap itsel
 ## Quick start
 
 ```sh
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/rui-ad-monte/dotfiles/main/scripts/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/rui-monte/dotfiles/main/scripts/install.sh)"
 ```
 
 The installer clones this repo into `~/dotfiles` and runs `scripts/bootstrap.sh`.
